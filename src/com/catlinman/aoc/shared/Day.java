@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public abstract class Day implements DayApp {
+public abstract class Day implements Puzzle {
 	int number;
 	
 	public Day(int number) {
@@ -33,7 +33,7 @@ public abstract class Day implements DayApp {
 		return path;
 	}
 	
-	public String[] ReadFileLinbes(String path) {
+	public String[] ReadFileLines(String path) {
 		try {
 			return Files.readAllLines(Paths.get(path)).toArray(String[]::new);
 

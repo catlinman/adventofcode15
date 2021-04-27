@@ -17,7 +17,7 @@ public class Day2 extends Day {
 		if (argv.length == 1) {
 			String path = argv[0];
 
-			String[] boxes = this.ReadFileLinbes(path);
+			String[] boxes = this.ReadFileLines(path);
 
 			int total = 0;
 			for (String box : boxes) {
@@ -60,7 +60,7 @@ public class Day2 extends Day {
 		if (argv.length == 1) {
 			String path = argv[0];
 
-			String[] boxes = this.ReadFileLinbes(path);
+			String[] boxes = this.ReadFileLines(path);
 
 			int total = 0;
 			for (String box : boxes) {

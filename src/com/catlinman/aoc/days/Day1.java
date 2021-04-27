@@ -1,7 +1,5 @@
 package com.catlinman.aoc.days;
 
-import java.io.File;
-
 import com.catlinman.aoc.shared.Day;
 
 public class Day1 extends Day {
