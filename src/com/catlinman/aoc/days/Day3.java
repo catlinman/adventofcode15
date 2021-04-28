@@ -1,6 +1,6 @@
 package com.catlinman.aoc.days;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 import com.catlinman.aoc.shared.Day;
 
@@ -20,11 +20,11 @@ public class Day3 extends Day {
 			String content = this.ReadFile(path);
 
 			// Keep a record of all houses we will visit.
-			HashMap<String, Integer> houses = new HashMap<String, Integer>() {
+			ArrayList<String> houses = new ArrayList<String>() {
 				private static final long serialVersionUID = 1L;
 
 				{
-					put("0,0", 1); // Initialize the record of houses with the starting position and initial value.
+					add("0,0"); // Initialize the record of houses with the starting position and initial value.
 				}
 			};
 
@@ -53,11 +53,8 @@ public class Day3 extends Day {
 
 				// Generate a unique ID for the current visited house.
 				String key = String.format("%d,%d", x, y);
-				if (houses.containsKey(key)) {
-					houses.put(key, houses.get(key) + 1);
-
-				} else {
-					houses.put(key, 1);
+				if (!houses.contains(key)) {
+					houses.add(key);
 				}
 			}
 
@@ -82,11 +79,11 @@ public class Day3 extends Day {
 			String content = this.ReadFile(path);
 
 			// Keep a record of all houses we will visit.
-			HashMap<String, Integer> houses = new HashMap<String, Integer>() {
+			ArrayList<String> houses = new ArrayList<String>() {
 				private static final long serialVersionUID = 1L;
 
 				{
-					put("0,0", 1); // Initialize the record of houses with the starting position and initial value.
+					add("0,0"); // Initialize the record of houses with the starting position and initial value.
 				}
 			};
 
@@ -100,9 +97,12 @@ public class Day3 extends Day {
 
 			for (int i = 0; i < content.length(); i++) { // Begin traversing.
 
+				// Check if it's Santa's turn to move. 
+				boolean isSanta = i % 2 == 0;
+				
 				// Alternate between Santa and Robo-Santa's positions.
-				int x = (i % 2 == 0) ? sx : rx;
-				int y = (i % 2 == 0) ? sy : ry;
+				int x = isSanta ? sx : rx;
+				int y = isSanta ? sy : ry;
 
 				switch (content.charAt(i)) { // Traverse.
 				case '<': // Move left.
@@ -123,7 +123,7 @@ public class Day3 extends Day {
 				}
 
 				// Re-assign our now updated values.
-				if (i % 2 == 0) {
+				if (isSanta) {
 					sx = x;
 					sy = y;
 
@@ -134,11 +134,8 @@ public class Day3 extends Day {
 				
 				// Generate a unique ID for the current visited house.
 				String key = String.format("%d,%d", x, y);
-				if (houses.containsKey(key)) {
-					houses.put(key, houses.get(key) + 1);
-
-				} else {
-					houses.put(key, 1);
+				if (!houses.contains(key)) {
+					houses.add(key);
 				}
 			}
 

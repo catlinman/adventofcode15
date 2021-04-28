@@ -8,7 +8,7 @@ import com.catlinman.aoc.shared.Day;
 import com.catlinman.aoc.days.*;
 
 public class App {
-	final static Day DAYS[] = { new Day1(), new Day2(), new Day3() };
+	final static Day DAYS[] = { new Day1(), new Day2(), new Day3(), new Day4() };
 
 	private static short getDay() {
 		System.out.println("Please enter the day you would like to run: ");
